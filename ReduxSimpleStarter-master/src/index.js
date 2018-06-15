@@ -1,10 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// create a new component, this component produces html
+import SearchBar from './components/search_bar';
 
-const App = () => <div>Hi!</div>;
+// const config = require('../config.js');
+// const youTubeApiKey = config.API_KEY;
 
-// take this component's generated HTML and put it on the page (in the DOM)
+
+// // create a new component, this component produces html
+
+const App = () => {
+    return (
+        <div>
+            <SearchBar />
+        </div>
+    );
+}
+
+// // take this component's generated HTML and put it on the page (in the DOM)
 
 ReactDOM.render(<App />, document.querySelector('.container'));
