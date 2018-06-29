@@ -1,7 +1,9 @@
 
 import axios from 'axios';
 const config = require('./config');
-const ROOT_URL = `https://openweathermap.org/data/2.5/forecast?appid=${config.weather.api_key}`
+const KEY = config.weather.api_key;
+const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${KEY}`;
+
 
 
 export const FETCH_WEATHER = 'FETCH_WEATHER'
