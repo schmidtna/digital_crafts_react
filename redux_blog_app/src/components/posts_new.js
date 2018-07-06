@@ -12,14 +12,23 @@ renderField(field) {
                 {...field.input}
                 //this passes in all pre generated event handlers like onChange, onFocus etc., all at once
             />
+            {field.meta.error}
+            {/* errors object is built into redux fomr to wire into this meta automatically */}
         </div>
     )
 
 }
 
+onSubmit(values) {
+    console.log(values);
+
+}
+
     render() {
+const { handleSubmit } = this.props;
+
         return (
-            <form>
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <Field
                     label="Title"
                     name="title"
@@ -35,6 +44,7 @@ renderField(field) {
                     name="content"
                     component={this.renderField}
                 />
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         );
     }
