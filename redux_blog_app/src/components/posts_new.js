@@ -26,8 +26,8 @@ renderField(field) {
                     component={this.renderField}
                 />
                 <Field
-                    label="Tags"
-                    name="tags"
+                    label="Categories"
+                    name="categories"
                     component={this.renderField}
                 />
                 <Field
@@ -40,6 +40,25 @@ renderField(field) {
     }
 }
 
+function validate (values) {
+    const errors = {};
+    // If errors returns empty, the form will submit
+    // If errors has any properties, reduxt form assumes form is invalid
+    if (!values.title || values.title.length < 3) {
+        errors.title = "Enter a title of at least 3 characters!"
+    }
+
+    if (!values.categories) {
+        errors.categories = "Enter some categoreis"
+    }
+
+    if (!values.content) {
+        errors.content = "Enter some content for your post"
+    }
+    return errors;
+}
+
 export default reduxForm({
+    validate,
     form: 'PostsNewForm'
 })(PostsNew);
